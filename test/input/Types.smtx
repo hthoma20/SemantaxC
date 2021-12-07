@@ -1,0 +1,15 @@
+main module Thing {
+
+    @decl(x, record(
+        a: int,
+        b: bool
+    ));
+
+    @decl(y, record(
+        a: int,
+        b: bool
+    ));
+
+    (x: x, y: y);
+
+}

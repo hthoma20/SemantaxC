@@ -1,0 +1,21 @@
+main module MoreTypes {
+
+
+    (a: 5, b: false, c: "foo");
+
+    (
+        myThing: (
+            a: 10,
+            b: true,
+            c: "bar"
+        ),
+        stuff: (
+            b: true,
+            c: "baz",
+            a: 2
+        )
+    );
+
+
+
+}

@@ -1,0 +1,7 @@
+headers/
+objects/
+jars/
+a.out
+out.cpp
+out.txt
+program.o

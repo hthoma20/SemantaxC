@@ -44,5 +44,6 @@ record_0* new_record_0(Int* a, Bool* b, String* c) {
 int main(int argc, char* argv[]) {
 	new_record_0(new_Int(5), new_Bool(false), new_String("foo"));
 	new_record_2(new_record_0(new_Int(10), new_Bool(true), new_String("bar")), new_record_1(new_Bool(true), new_String("baz"), new_Int(2)));
+	finalizeGarbageCollector();
 	return 0;
 }

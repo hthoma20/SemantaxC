@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REMOTE_DEBUG=true
+REMOTE_DEBUG=false
 javaArgs=''
 
 function printHelp {

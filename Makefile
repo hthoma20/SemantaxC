@@ -22,3 +22,7 @@ directories:
 .PHONY: runtests
 runtests:
 	./tests.sh
+
+.PHONY: clean
+clean:
+	rm -f a.out out.cpp out.txt program.o

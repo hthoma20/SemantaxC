@@ -1,0 +1,8 @@
+main module hello {
+
+    @printstring("Hello, World!\n");
+    @printstring("I am ");
+    @printint(23);
+    @printstring(" years old.\n");
+
+}

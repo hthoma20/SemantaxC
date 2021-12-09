@@ -1,4 +1,4 @@
-main module Thing {
+main module Types {
 
     @decl(x, record(
         a: int,

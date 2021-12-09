@@ -26,5 +26,6 @@ record_1* new_record_1(record_0* x, record_0* y) {
 }
 
 int main(int argc, char* argv[]) {
+	new_record_1(nullptr, nullptr);
 	return 0;
 }

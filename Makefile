@@ -7,8 +7,8 @@ runtime_objects = allocator.o types.o progcalls.o
 compiler_dir = /mnt/c/Users/harry/Semantax/SemantaxC-Java
 compiler_jar = $(compiler_dir)/target/semantaxc-0.1-SNAPSHOT-jar-with-dependencies.jar
 
-.DUMMY: install
-install: directories $(compiler_jar)
+.PHONY: install
+install: directories
 	cp $(addprefix $(runtime_dir)/src/, $(runtime_headers)) ./headers
 	cp $(addprefix $(runtime_dir)/, $(runtime_objects)) ./objects
 	cp $(compiler_jar) ./jars/semantaxc.jar
@@ -18,6 +18,7 @@ directories:
 	mkdir -p objects
 	mkdir -p jars
 
-$(compiler_jar): $(compiler_dir)
-	cd $(compiler_dir); \
-		mvn clean compile assembly:single
+
+.PHONY: runtests
+runtests:
+	./tests.sh

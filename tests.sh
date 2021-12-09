@@ -1,5 +1,7 @@
 #!/bin/bash
 
+STOP_ON_TEST_FAILURE=false
+
 testCount=0
 passCount=0
 newCount=0
@@ -42,6 +44,9 @@ do
         if [ $snapshotMatches -eq 0 -a $outputMatches -eq 0 ]
         then
             passCount=$(($passCount + 1))
+        elif [ "$STOP_ON_TEST_FAILURE" = true ]
+        then
+            exit 1
         fi
 
     else

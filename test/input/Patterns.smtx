@@ -1,0 +1,11 @@
+
+main module patterns {
+
+    $a + b$
+    (a: int, b: int) -> int {
+        @addint(a, b)
+    }
+
+    @printint(5 + 4);
+
+}

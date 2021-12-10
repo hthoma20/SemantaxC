@@ -9,7 +9,7 @@ newCount=0
 for testFile in test/input/*.smtx
 do
 
-    rm -f out.cpp out.txt a.out
+    rm -f out.cpp program.o a.out out.txt
 
     testCount=$(($testCount + 1))
 
@@ -38,7 +38,7 @@ do
         if [ $outputMatches -eq 1 ]
         then
             echo "Snapshot for ouput mismatch for $testFile"
-            diff out.cpp $outputSnapshot
+            diff out.txt $outputSnapshot
         fi
 
         if [ $snapshotMatches -eq 0 -a $outputMatches -eq 0 ]

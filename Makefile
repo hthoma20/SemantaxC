@@ -26,3 +26,7 @@ runtests:
 .PHONY: clean
 clean:
 	rm -f a.out out.cpp out.txt program.o
+
+.PHONY: uninstall
+uninstall:
+	rm -rf headers jars objects

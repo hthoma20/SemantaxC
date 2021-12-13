@@ -16,8 +16,8 @@ void new_record_0() {
 void pattern_ab_0() {
 	record_0* arg = (record_0*) popRoot();
 	{
-		pushRoot(nullptr);
-		pushRoot(nullptr);
+		pushRoot(arg->a);
+		pushRoot(arg->b);
 	}
 	addint();
 }

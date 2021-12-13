@@ -7,26 +7,31 @@ struct record_0 : Collectable {
 	Int* a;
 	Bool* b;
 };
-record_0* new_record_0(Int* a, Bool* b) {
+void new_record_0() {
 	record_0* obj = (record_0*) gcalloc(sizeof(record_0), 2);
-	obj->a = a;
-	obj->b = b;
-	return obj;
+	obj->b = (Bool*) popRoot();
+	obj->a = (Int*) popRoot();
+	pushRoot(obj);
 }
 
 struct record_1 : Collectable {
 	record_0* x;
 	record_0* y;
 };
-record_1* new_record_1(record_0* x, record_0* y) {
+void new_record_1() {
 	record_1* obj = (record_1*) gcalloc(sizeof(record_1), 2);
-	obj->x = x;
-	obj->y = y;
-	return obj;
+	obj->y = (record_0*) popRoot();
+	obj->x = (record_0*) popRoot();
+	pushRoot(obj);
 }
 
 int main(int argc, char* argv[]) {
-	new_record_1(nullptr, nullptr);
+	{
+		pushRoot(nullptr);
+		pushRoot(nullptr);
+	}
+	new_record_1();
+	popRoot();
 	finalizeGarbageCollector();
 	return 0;
 }

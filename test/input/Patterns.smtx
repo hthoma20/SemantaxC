@@ -6,6 +6,22 @@ main module patterns {
         @addint(a, b)
     }
 
-    @printint(5 + 4);
+    $print n$
+    (n: int) {
+        @printint(n);
+    }
+
+    $print str$
+    (str: string) {
+        @printstring(str);
+    }
+
+    $println n$
+    (n: int) {
+        print n;
+        print "\n";
+    }
+
+    println 5 + 4;
 
 }

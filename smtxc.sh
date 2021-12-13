@@ -1,7 +1,6 @@
 #!/bin/bash
 
 REMOTE_DEBUG=false
-javaArgs=''
 
 function printHelp {
     echo "Usage: "

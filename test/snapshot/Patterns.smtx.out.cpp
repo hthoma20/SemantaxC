@@ -1,6 +1,26 @@
 #include "runtime.h"
 
+struct record_1;
+struct record_2;
 struct record_0;
+
+struct record_1 : Collectable {
+	Int* n;
+};
+void new_record_1() {
+	record_1* obj = (record_1*) gcalloc(sizeof(record_1), 1);
+	obj->n = (Int*) popRoot();
+	pushRoot(obj);
+}
+
+struct record_2 : Collectable {
+	String* str;
+};
+void new_record_2() {
+	record_2* obj = (record_2*) gcalloc(sizeof(record_2), 1);
+	obj->str = (String*) popRoot();
+	pushRoot(obj);
+}
 
 struct record_0 : Collectable {
 	Int* a;
@@ -22,6 +42,36 @@ void pattern_ab_0() {
 	addint();
 }
 
+void pattern_printn_1() {
+	record_1* arg = (record_1*) popRoot();
+	{
+		pushRoot(arg->n);
+	}
+	printint();
+}
+
+void pattern_printstr_2() {
+	record_2* arg = (record_2*) popRoot();
+	{
+		pushRoot(arg->str);
+	}
+	printstring();
+}
+
+void pattern_printlnn_3() {
+	record_1* arg = (record_1*) popRoot();
+	{
+		pushRoot(arg->n);
+	}
+	new_record_1();
+	pattern_printn_1();
+	{
+		new_String("\n");
+	}
+	new_record_2();
+	pattern_printstr_2();
+}
+
 int main(int argc, char* argv[]) {
 	{
 		{
@@ -31,7 +81,8 @@ int main(int argc, char* argv[]) {
 		new_record_0();
 		pattern_ab_0();
 	}
-	printint();
+	new_record_1();
+	pattern_printlnn_3();
 	finalizeGarbageCollector();
 	return 0;
 }

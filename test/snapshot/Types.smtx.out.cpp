@@ -27,8 +27,16 @@ void new_record_1() {
 
 int main(int argc, char* argv[]) {
 	{
-		pushRoot(nullptr);
-		pushRoot(nullptr);
+		{
+			new_Int(1);
+			new_Bool(true);
+		}
+		new_record_0();
+		{
+			new_Int(2);
+			new_Bool(false);
+		}
+		new_record_0();
 	}
 	new_record_1();
 	popRoot();

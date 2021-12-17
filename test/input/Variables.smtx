@@ -1,0 +1,31 @@
+
+main module variables {
+
+    $print n$
+    (n: int) {
+        @printint(n);
+        @printstring("\n");
+    }
+
+    $a + b$
+    (a: int, b: int) -> int {
+        @addint(a, b)
+    }
+
+    $print n plus three$
+    (n: int) {
+        @decl(x, int);
+        @decl(y, int);
+        @bind(x, 1);
+        @bind(y, 2);
+
+        @decl(sum, int);
+        @bind(sum, x + y);
+
+        print sum + n;
+    }
+
+    print 5 plus three;
+    print 10 plus three;
+
+}

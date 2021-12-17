@@ -10,6 +10,6 @@ main module Types {
         b: bool
     ));
 
-    (x: x, y: y);
+    (x: (a: 1, b: true), y: (a: 2, b: false));
 
 }

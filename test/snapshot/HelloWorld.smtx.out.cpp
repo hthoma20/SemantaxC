@@ -1,7 +1,11 @@
 #include "runtime.h"
 
 
+
+
+
 int main(int argc, char* argv[]) {
+	
 	{
 		new_String("Hello, World!\n");
 	}
@@ -18,6 +22,7 @@ int main(int argc, char* argv[]) {
 		new_String(" years old.\n");
 	}
 	printstring();
+	
 	finalizeGarbageCollector();
 	return 0;
 }

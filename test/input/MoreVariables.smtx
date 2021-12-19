@@ -1,0 +1,14 @@
+main module MoreVariables {
+
+    @decl(x, int);
+    @bind(x, 10);
+
+    $add six to x$
+    (x: int) -> int {
+        @addint(6, x)
+    }
+
+
+    @printint(add six to x);
+    @printstring("\n");
+}

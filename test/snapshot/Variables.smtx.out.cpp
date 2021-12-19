@@ -23,6 +23,8 @@ void new_record_1() {
 	pushRoot(obj);
 }
 
+
+
 void pattern_printn_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	
@@ -57,26 +59,26 @@ void pattern_ab_1() {
 void pattern_printnpl_2() {
 	record_0* arg = (record_0*) getRoot(0);
 	new_Variable();
-	Variable* var_x_0 = (Variable*) getRoot(0);
+	Variable* var_sum_0 = (Variable*) getRoot(0);
 	new_Variable();
-	Variable* var_y_1 = (Variable*) getRoot(0);
+	Variable* var_x_1 = (Variable*) getRoot(0);
 	new_Variable();
-	Variable* var_sum_2 = (Variable*) getRoot(0);
+	Variable* var_y_2 = (Variable*) getRoot(0);
 	
 	new_Int(1);
-	var_x_0->val = popRoot();
+	var_x_1->val = popRoot();
 	new_Int(2);
-	var_y_1->val = popRoot();
+	var_y_2->val = popRoot();
 	{
-		pushRoot(var_x_0->val);
-		pushRoot(var_y_1->val);
+		pushRoot(var_x_1->val);
+		pushRoot(var_y_2->val);
 	}
 	new_record_1();
 	pattern_ab_1();
-	var_sum_2->val = popRoot();
+	var_sum_0->val = popRoot();
 	{
 		{
-			pushRoot(var_sum_2->val);
+			pushRoot(var_sum_0->val);
 			pushRoot(arg->n);
 		}
 		new_record_1();
@@ -89,7 +91,9 @@ void pattern_printnpl_2() {
 	popRoots(4);
 }
 
+
 int main(int argc, char* argv[]) {
+	
 	{
 		new_Int(5);
 	}
@@ -100,6 +104,7 @@ int main(int argc, char* argv[]) {
 	}
 	new_record_0();
 	pattern_printnpl_2();
+	
 	finalizeGarbageCollector();
 	return 0;
 }

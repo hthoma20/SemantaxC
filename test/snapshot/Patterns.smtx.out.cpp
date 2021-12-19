@@ -33,6 +33,8 @@ void new_record_0() {
 	pushRoot(obj);
 }
 
+
+
 void pattern_ab_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	
@@ -90,7 +92,9 @@ void pattern_printlnn_3() {
 	popRoots(1);
 }
 
+
 int main(int argc, char* argv[]) {
+	
 	{
 		{
 			new_Int(5);
@@ -101,6 +105,7 @@ int main(int argc, char* argv[]) {
 	}
 	new_record_1();
 	pattern_printlnn_3();
+	
 	finalizeGarbageCollector();
 	return 0;
 }

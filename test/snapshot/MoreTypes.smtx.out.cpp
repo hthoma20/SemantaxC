@@ -41,7 +41,11 @@ void new_record_0() {
 	pushRoot(obj);
 }
 
+
+
+
 int main(int argc, char* argv[]) {
+	
 	{
 		new_Int(5);
 		new_Bool(false);
@@ -65,6 +69,7 @@ int main(int argc, char* argv[]) {
 	}
 	new_record_2();
 	popRoot();
+	
 	finalizeGarbageCollector();
 	return 0;
 }

@@ -25,21 +25,26 @@ void new_record_1() {
 	pushRoot(obj);
 }
 
+
+Variable* var_x_0;
+Variable* var_y_1;
+
+
 int main(int argc, char* argv[]) {
+	new_Variable();
+	var_x_0 = (Variable*) popRoot();
+	pushRoot(var_x_0);
+	new_Variable();
+	var_y_1 = (Variable*) popRoot();
+	pushRoot(var_y_1);
+	
 	{
-		{
-			new_Int(1);
-			new_Bool(true);
-		}
-		new_record_0();
-		{
-			new_Int(2);
-			new_Bool(false);
-		}
-		new_record_0();
+		pushRoot(var_x_0->val);
+		pushRoot(var_y_1->val);
 	}
 	new_record_1();
 	popRoot();
+	
 	finalizeGarbageCollector();
 	return 0;
 }

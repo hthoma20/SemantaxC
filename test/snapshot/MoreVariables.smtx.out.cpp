@@ -14,8 +14,11 @@ void new_record_0() {
 
 Variable* var_x_0;
 
-void pattern_addsixto_0() {
+// $ add six to x $
+struct closure_fun_7_0 : Collectable {};
+void fun_7_0() {
 	record_0* arg = (record_0*) getRoot(0);
+	closure_fun_7_0* closure = (closure_fun_7_0*) getRoot(1);
 	
 	{
 		new_Int(6);
@@ -25,7 +28,7 @@ void pattern_addsixto_0() {
 	
 	ret:
 	Collectable* ret_val = popRoot();
-	popRoots(1);
+	popRoots(2);
 	pushRoot(ret_val);
 }
 
@@ -38,11 +41,13 @@ int main(int argc, char* argv[]) {
 	new_Int(10);
 	var_x_0->val = popRoot();
 	{
+		// closure for pattern
+		pushRoot(nullptr);
 		{
 			pushRoot(var_x_0->val);
 		}
 		new_record_0();
-		pattern_addsixto_0();
+		fun_7_0();
 	}
 	printint();
 	{

@@ -35,8 +35,11 @@ void new_record_0() {
 
 
 
-void pattern_ab_0() {
+// $ a + b $
+struct closure_fun_5_0 : Collectable {};
+void fun_5_0() {
 	record_0* arg = (record_0*) getRoot(0);
+	closure_fun_5_0* closure = (closure_fun_5_0*) getRoot(1);
 	
 	{
 		pushRoot(arg->a);
@@ -46,12 +49,15 @@ void pattern_ab_0() {
 	
 	ret:
 	Collectable* ret_val = popRoot();
-	popRoots(1);
+	popRoots(2);
 	pushRoot(ret_val);
 }
 
-void pattern_printn_1() {
+// $ print n $
+struct closure_fun_10_1 : Collectable {};
+void fun_10_1() {
 	record_1* arg = (record_1*) getRoot(0);
+	closure_fun_10_1* closure = (closure_fun_10_1*) getRoot(1);
 	
 	{
 		pushRoot(arg->n);
@@ -59,11 +65,14 @@ void pattern_printn_1() {
 	printint();
 	
 	ret:
-	popRoots(1);
+	popRoots(2);
 }
 
-void pattern_printstr_2() {
+// $ print str $
+struct closure_fun_15_2 : Collectable {};
+void fun_15_2() {
 	record_2* arg = (record_2*) getRoot(0);
+	closure_fun_15_2* closure = (closure_fun_15_2*) getRoot(1);
 	
 	{
 		pushRoot(arg->str);
@@ -71,40 +80,51 @@ void pattern_printstr_2() {
 	printstring();
 	
 	ret:
-	popRoots(1);
+	popRoots(2);
 }
 
-void pattern_printlnn_3() {
+// $ println n $
+struct closure_fun_20_3 : Collectable {};
+void fun_20_3() {
 	record_1* arg = (record_1*) getRoot(0);
+	closure_fun_20_3* closure = (closure_fun_20_3*) getRoot(1);
 	
+	// closure for pattern
+	pushRoot(nullptr);
 	{
 		pushRoot(arg->n);
 	}
 	new_record_1();
-	pattern_printn_1();
+	fun_10_1();
+	// closure for pattern
+	pushRoot(nullptr);
 	{
 		new_String("\n");
 	}
 	new_record_2();
-	pattern_printstr_2();
+	fun_15_2();
 	
 	ret:
-	popRoots(1);
+	popRoots(2);
 }
 
 
 int main(int argc, char* argv[]) {
 	
+	// closure for pattern
+	pushRoot(nullptr);
 	{
+		// closure for pattern
+		pushRoot(nullptr);
 		{
 			new_Int(5);
 			new_Int(4);
 		}
 		new_record_0();
-		pattern_ab_0();
+		fun_5_0();
 	}
 	new_record_1();
-	pattern_printlnn_3();
+	fun_20_3();
 	
 	finalizeGarbageCollector();
 	return 0;

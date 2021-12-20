@@ -26,21 +26,21 @@ void new_record_1() {
 }
 
 
-Variable* var_x_0;
-Variable* var_y_1;
+Variable* var_y_0;
+Variable* var_x_1;
 
 
 int main(int argc, char* argv[]) {
 	new_Variable();
-	var_x_0 = (Variable*) popRoot();
-	pushRoot(var_x_0);
+	var_y_0 = (Variable*) popRoot();
+	pushRoot(var_y_0);
 	new_Variable();
-	var_y_1 = (Variable*) popRoot();
-	pushRoot(var_y_1);
+	var_x_1 = (Variable*) popRoot();
+	pushRoot(var_x_1);
 	
 	{
-		pushRoot(var_x_0->val);
-		pushRoot(var_y_1->val);
+		pushRoot(var_x_1->val);
+		pushRoot(var_y_0->val);
 	}
 	new_record_1();
 	popRoot();

@@ -34,6 +34,11 @@ void new_record_0() {
 }
 
 
+void initializeGlobalVariables() {
+	for (int i = 0; i < 0; i++) {
+		new_Variable();
+	}
+}
 
 struct closure_fun_5_0 {
 };
@@ -122,6 +127,7 @@ void new_fun_20_3() {
 }
 
 int main(int argc, char* argv[]) {
+	initializeGlobalVariables();
 	
 	// closure for pattern
 	pushRoot(nullptr);

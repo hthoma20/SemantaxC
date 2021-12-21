@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STOP_ON_TEST_FAILURE=true
+STOP_ON_TEST_FAILURE=false
 
 testCount=0
 passCount=0

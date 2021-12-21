@@ -28,15 +28,17 @@ void new_record_1() {
 
 Variable* var_x_0;
 Variable* var_y_1;
+void initializeGlobalVariables() {
+	for (int i = 0; i < 2; i++) {
+		new_Variable();
+	}
+	var_x_0 = (Variable*) getRoot(0);
+	var_y_1 = (Variable*) getRoot(1);
+}
 
 
 int main(int argc, char* argv[]) {
-	new_Variable();
-	var_x_0 = (Variable*) popRoot();
-	pushRoot(var_x_0);
-	new_Variable();
-	var_y_1 = (Variable*) popRoot();
-	pushRoot(var_y_1);
+	initializeGlobalVariables();
 	
 	{
 		pushRoot(var_x_0->val);

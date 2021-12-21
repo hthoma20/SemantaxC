@@ -42,9 +42,15 @@ void new_record_0() {
 }
 
 
+void initializeGlobalVariables() {
+	for (int i = 0; i < 0; i++) {
+		new_Variable();
+	}
+}
 
 
 int main(int argc, char* argv[]) {
+	initializeGlobalVariables();
 	
 	{
 		new_Int(5);

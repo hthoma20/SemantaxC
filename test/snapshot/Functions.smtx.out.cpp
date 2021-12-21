@@ -13,6 +13,12 @@ void new_record_0() {
 
 
 Variable* var_global_0;
+void initializeGlobalVariables() {
+	for (int i = 0; i < 1; i++) {
+		new_Variable();
+	}
+	var_global_0 = (Variable*) getRoot(0);
+}
 
 struct closure_fun_9_0 {
 	Variable* local;
@@ -64,9 +70,7 @@ void new_fun_5_1() {
 }
 
 int main(int argc, char* argv[]) {
-	new_Variable();
-	var_global_0 = (Variable*) popRoot();
-	pushRoot(var_global_0);
+	initializeGlobalVariables();
 	
 	// Function lit on line 5
 	popRoot();

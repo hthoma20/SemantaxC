@@ -40,7 +40,7 @@ void initializeGlobalVariables() {
 	}
 }
 
-struct closure_fun_5_0 {
+struct closure_fun_5_0 : Collectable {
 };
 void fun_5_0() {
 	record_0* arg = (record_0*) getRoot(0);
@@ -61,7 +61,7 @@ void new_fun_5_0() {
 	pushRoot(nullptr);
 	new_Func(fun_5_0);
 }
-struct closure_fun_10_1 {
+struct closure_fun_10_1 : Collectable {
 };
 void fun_10_1() {
 	record_1* arg = (record_1*) getRoot(0);
@@ -79,7 +79,7 @@ void new_fun_10_1() {
 	pushRoot(nullptr);
 	new_Func(fun_10_1);
 }
-struct closure_fun_15_2 {
+struct closure_fun_15_2 : Collectable {
 };
 void fun_15_2() {
 	record_2* arg = (record_2*) getRoot(0);
@@ -97,7 +97,7 @@ void new_fun_15_2() {
 	pushRoot(nullptr);
 	new_Func(fun_15_2);
 }
-struct closure_fun_20_3 {
+struct closure_fun_20_3 : Collectable {
 };
 void fun_20_3() {
 	record_1* arg = (record_1*) getRoot(0);

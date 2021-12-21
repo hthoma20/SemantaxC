@@ -20,7 +20,7 @@ void initializeGlobalVariables() {
 	var_global_0 = (Variable*) getRoot(0);
 }
 
-struct closure_fun_9_0 {
+struct closure_fun_9_0 : Collectable {
 	Variable* local;
 };
 void fun_9_0() {
@@ -42,9 +42,10 @@ void fun_9_0() {
 void new_fun_9_0() {
 	closure_fun_9_0* closure = (closure_fun_9_0*) gcalloc(sizeof(closure_fun_9_0), 1);
 	closure->local = (Variable*) popRoot();
+	pushRoot(closure);
 	new_Func(fun_9_0);
 }
-struct closure_fun_5_1 {
+struct closure_fun_5_1 : Collectable {
 };
 void fun_5_1() {
 	record_0* arg = (record_0*) getRoot(0);

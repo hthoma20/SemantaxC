@@ -20,7 +20,7 @@ void initializeGlobalVariables() {
 	var_x_0 = (Variable*) getRoot(0);
 }
 
-struct closure_fun_7_0 {
+struct closure_fun_7_0 : Collectable {
 };
 void fun_7_0() {
 	record_0* arg = (record_0*) getRoot(0);

@@ -1,0 +1,16 @@
+main module functions {
+
+    @decl(global, int);
+
+    (local: int) {
+        @printint(local);
+        @printint(global);
+
+        {
+            @printstring("nested\n");
+            @printint(local);
+        };
+
+    };
+
+}

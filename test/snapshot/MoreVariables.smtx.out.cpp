@@ -14,8 +14,8 @@ void new_record_0() {
 
 Variable* var_x_0;
 
-// $ add six to x $
-struct closure_fun_7_0 : Collectable {};
+struct closure_fun_7_0 {
+};
 void fun_7_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_7_0* closure = (closure_fun_7_0*) getRoot(1);
@@ -31,7 +31,10 @@ void fun_7_0() {
 	popRoots(2);
 	pushRoot(ret_val);
 }
-
+void new_fun_7_0() {
+	pushRoot(nullptr);
+	new_Func(fun_7_0);
+}
 
 int main(int argc, char* argv[]) {
 	new_Variable();

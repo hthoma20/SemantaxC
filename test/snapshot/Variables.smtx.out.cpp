@@ -25,8 +25,8 @@ void new_record_1() {
 
 
 
-// $ print n $
-struct closure_fun_5_0 : Collectable {};
+struct closure_fun_5_0 {
+};
 void fun_5_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_5_0* closure = (closure_fun_5_0*) getRoot(1);
@@ -43,9 +43,12 @@ void fun_5_0() {
 	ret:
 	popRoots(2);
 }
-
-// $ a + b $
-struct closure_fun_11_1 : Collectable {};
+void new_fun_5_0() {
+	pushRoot(nullptr);
+	new_Func(fun_5_0);
+}
+struct closure_fun_11_1 {
+};
 void fun_11_1() {
 	record_1* arg = (record_1*) getRoot(0);
 	closure_fun_11_1* closure = (closure_fun_11_1*) getRoot(1);
@@ -61,9 +64,12 @@ void fun_11_1() {
 	popRoots(2);
 	pushRoot(ret_val);
 }
-
-// $ print n plus three $
-struct closure_fun_16_2 : Collectable {};
+void new_fun_11_1() {
+	pushRoot(nullptr);
+	new_Func(fun_11_1);
+}
+struct closure_fun_16_2 {
+};
 void fun_16_2() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_16_2* closure = (closure_fun_16_2*) getRoot(1);
@@ -105,7 +111,10 @@ void fun_16_2() {
 	ret:
 	popRoots(5);
 }
-
+void new_fun_16_2() {
+	pushRoot(nullptr);
+	new_Func(fun_16_2);
+}
 
 int main(int argc, char* argv[]) {
 	

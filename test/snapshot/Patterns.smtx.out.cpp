@@ -45,16 +45,22 @@ struct closure_fun_5_0 : Collectable {
 void fun_5_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_5_0* closure = (closure_fun_5_0*) getRoot(1);
+	new_Variable();
+	Variable* arg_a_0 = (Variable*) getRoot(0);
+	arg_a_0->val = arg->a;
+	new_Variable();
+	Variable* arg_b_1 = (Variable*) getRoot(0);
+	arg_b_1->val = arg->b;
 	
 	{
-		pushRoot(arg->a);
-		pushRoot(arg->b);
+		pushRoot(arg_a_0->val);
+		pushRoot(arg_b_1->val);
 	}
 	addint();
 	
 	ret:
 	Collectable* ret_val = popRoot();
-	popRoots(2);
+	popRoots(4);
 	pushRoot(ret_val);
 }
 void new_fun_5_0() {
@@ -66,14 +72,17 @@ struct closure_fun_10_1 : Collectable {
 void fun_10_1() {
 	record_1* arg = (record_1*) getRoot(0);
 	closure_fun_10_1* closure = (closure_fun_10_1*) getRoot(1);
+	new_Variable();
+	Variable* arg_n_2 = (Variable*) getRoot(0);
+	arg_n_2->val = arg->n;
 	
 	{
-		pushRoot(arg->n);
+		pushRoot(arg_n_2->val);
 	}
 	printint();
 	
 	ret:
-	popRoots(2);
+	popRoots(3);
 }
 void new_fun_10_1() {
 	pushRoot(nullptr);
@@ -84,14 +93,17 @@ struct closure_fun_15_2 : Collectable {
 void fun_15_2() {
 	record_2* arg = (record_2*) getRoot(0);
 	closure_fun_15_2* closure = (closure_fun_15_2*) getRoot(1);
+	new_Variable();
+	Variable* arg_str_3 = (Variable*) getRoot(0);
+	arg_str_3->val = arg->str;
 	
 	{
-		pushRoot(arg->str);
+		pushRoot(arg_str_3->val);
 	}
 	printstring();
 	
 	ret:
-	popRoots(2);
+	popRoots(3);
 }
 void new_fun_15_2() {
 	pushRoot(nullptr);
@@ -102,11 +114,14 @@ struct closure_fun_20_3 : Collectable {
 void fun_20_3() {
 	record_1* arg = (record_1*) getRoot(0);
 	closure_fun_20_3* closure = (closure_fun_20_3*) getRoot(1);
+	new_Variable();
+	Variable* arg_n_4 = (Variable*) getRoot(0);
+	arg_n_4->val = arg->n;
 	
 	// closure for pattern
 	pushRoot(nullptr);
 	{
-		pushRoot(arg->n);
+		pushRoot(arg_n_4->val);
 	}
 	new_record_1();
 	fun_10_1();
@@ -119,7 +134,7 @@ void fun_20_3() {
 	fun_15_2();
 	
 	ret:
-	popRoots(2);
+	popRoots(3);
 }
 void new_fun_20_3() {
 	pushRoot(nullptr);

@@ -2,13 +2,18 @@ main module functions {
 
     @decl(global, int);
 
-    (local: int) {
+    (argument: int) {
+        @decl(local, int);
+
         @printint(local);
         @printint(global);
+        @printint(argument);
 
         {
-            @printstring("nested\n");
+            @printstring("nested 1\n");
             @printint(local);
+            @printint(global);
+            @printint(argument);
         };
 
     };

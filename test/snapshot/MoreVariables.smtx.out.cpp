@@ -25,16 +25,19 @@ struct closure_fun_7_0 : Collectable {
 void fun_7_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_7_0* closure = (closure_fun_7_0*) getRoot(1);
+	new_Variable();
+	Variable* arg_x_1 = (Variable*) getRoot(0);
+	arg_x_1->val = arg->x;
 	
 	{
 		new_Int(6);
-		pushRoot(arg->x);
+		pushRoot(arg_x_1->val);
 	}
 	addint();
 	
 	ret:
 	Collectable* ret_val = popRoot();
-	popRoots(2);
+	popRoots(3);
 	pushRoot(ret_val);
 }
 void new_fun_7_0() {

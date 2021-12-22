@@ -3,11 +3,11 @@
 struct record_0;
 
 struct record_0 : Collectable {
-	Int* local;
+	Int* argument;
 };
 void new_record_0() {
 	record_0* obj = (record_0*) gcalloc(sizeof(record_0), 1);
-	obj->local = (Int*) popRoot();
+	obj->argument = (Int*) popRoot();
 	pushRoot(obj);
 }
 
@@ -20,50 +20,73 @@ void initializeGlobalVariables() {
 	var_global_0 = (Variable*) getRoot(0);
 }
 
-struct closure_fun_9_0 : Collectable {
+struct closure_fun_12_0 : Collectable {
 	Variable* local;
+	Variable* argument;
 };
-void fun_9_0() {
+void fun_12_0() {
 	void* arg = (void*) getRoot(0);
-	closure_fun_9_0* closure = (closure_fun_9_0*) getRoot(1);
+	closure_fun_12_0* closure = (closure_fun_12_0*) getRoot(1);
 	
 	{
-		new_String("nested\n");
+		new_String("nested 1\n");
 	}
 	printstring();
 	{
 		pushRoot(closure->local->val);
 	}
 	printint();
+	{
+		pushRoot(var_global_0->val);
+	}
+	printint();
+	{
+		pushRoot(closure->argument->val);
+	}
+	printint();
 	
 	ret:
 	popRoots(2);
 }
-void new_fun_9_0() {
-	closure_fun_9_0* closure = (closure_fun_9_0*) gcalloc(sizeof(closure_fun_9_0), 1);
+void new_fun_12_0() {
+	closure_fun_12_0* closure = (closure_fun_12_0*) gcalloc(sizeof(closure_fun_12_0), 2);
+	closure->argument = (Variable*) popRoot();
 	closure->local = (Variable*) popRoot();
 	pushRoot(closure);
-	new_Func(fun_9_0);
+	new_Func(fun_12_0);
 }
 struct closure_fun_5_1 : Collectable {
 };
 void fun_5_1() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_5_1* closure = (closure_fun_5_1*) getRoot(1);
+	new_Variable();
+	Variable* arg_argument_1 = (Variable*) getRoot(0);
+	arg_argument_1->val = arg->argument;
+	new_Variable();
+	Variable* var_local_2 = (Variable*) getRoot(0);
 	
 	{
-		pushRoot(arg->local);
+		pushRoot(var_local_2->val);
 	}
 	printint();
 	{
 		pushRoot(var_global_0->val);
 	}
 	printint();
-	// Function lit on line 9
+	{
+		pushRoot(arg_argument_1->val);
+	}
+	printint();
+	{
+		pushRoot(var_local_2);
+		pushRoot(arg_argument_1);
+	}
+	new_fun_12_0();
 	popRoot();
 	
 	ret:
-	popRoots(2);
+	popRoots(4);
 }
 void new_fun_5_1() {
 	pushRoot(nullptr);
@@ -73,7 +96,9 @@ void new_fun_5_1() {
 int main(int argc, char* argv[]) {
 	initializeGlobalVariables();
 	
-	// Function lit on line 5
+	{
+	}
+	new_fun_5_1();
 	popRoot();
 	
 	finalizeGarbageCollector();

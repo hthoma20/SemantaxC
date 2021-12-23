@@ -8,7 +8,15 @@ main module MoreVariables {
         @addint(6, x)
     }
 
+    $change global to n$
+    (n: int) {
+        @bind(x, n);
+    }
 
+    @printint(add six to x);
+    @printstring("\n");
+
+    change global to 6;
     @printint(add six to x);
     @printstring("\n");
 }

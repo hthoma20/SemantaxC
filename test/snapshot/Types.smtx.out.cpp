@@ -26,14 +26,14 @@ void new_record_1() {
 }
 
 
-Variable* var_x_0;
-Variable* var_y_1;
+Variable* var_y_0;
+Variable* var_x_1;
 void initializeGlobalVariables() {
 	for (int i = 0; i < 2; i++) {
 		new_Variable();
 	}
-	var_x_0 = (Variable*) getRoot(0);
-	var_y_1 = (Variable*) getRoot(1);
+	var_y_0 = (Variable*) getRoot(0);
+	var_x_1 = (Variable*) getRoot(1);
 }
 
 
@@ -41,8 +41,8 @@ int main(int argc, char* argv[]) {
 	initializeGlobalVariables();
 	
 	{
-		pushRoot(var_x_0->val);
-		pushRoot(var_y_1->val);
+		pushRoot(var_x_1->val);
+		pushRoot(var_y_0->val);
 	}
 	new_record_1();
 	popRoot();

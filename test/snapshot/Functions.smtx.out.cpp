@@ -1,6 +1,14 @@
 #include "runtime.h"
 
+struct record_empty;
 struct record_0;
+
+struct record_empty : Collectable {
+};
+void new_record_empty() {
+	record_empty* obj = (record_empty*) gcalloc(sizeof(record_empty), 0);
+	pushRoot(obj);
+}
 
 struct record_0 : Collectable {
 	Int* argument;
@@ -25,7 +33,7 @@ struct closure_fun_12_0 : Collectable {
 	Variable* argument;
 };
 void fun_12_0() {
-	void* arg = (void*) getRoot(0);
+	record_empty* arg = (record_empty*) getRoot(0);
 	closure_fun_12_0* closure = (closure_fun_12_0*) getRoot(1);
 	
 	{

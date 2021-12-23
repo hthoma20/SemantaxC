@@ -1,0 +1,42 @@
+main module functions {
+
+    @decl(global, int);
+
+    (argument: int) {
+        @decl(local, int);
+
+        @printint(local);
+        @printint(global);
+        @printint(argument);
+
+        (nestedArg: int) {
+            @printstring("nested 1\n");
+            @printint(local);
+            @printint(global);
+            @printint(argument);
+            @printint(nestedArg);
+
+            {
+                @printstring("nested 2\n");
+                @printint(local);
+                @printint(global);
+                @printint(argument);
+                @printint(nestedArg);
+            };
+
+        };
+
+    };
+
+    (outer: int) {
+        @decl(outerLocal, int);
+        (inner: int) {
+            {
+                @printint(outer);
+                @printint(outerLocal);
+                @printint(inner);
+            };
+        };
+    };
+
+}

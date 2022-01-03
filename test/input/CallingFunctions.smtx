@@ -1,0 +1,43 @@
+main module calling {
+
+    $print i$
+    (i: int) {
+        @printint(i);
+        @printstring("\n");
+    }
+
+    @invokefun((arg: string){
+        @printstring("Hello, ");
+        @printstring(arg);
+        @printstring("!\n");
+    }, (arg: "Harry"));
+
+
+    @decl(sum, func{record(x: int, y: int) -> int});
+    @bind(sum, (x: int, y:int) -> int {
+        @addint(x, y)
+    });
+
+    @printstring("Sum (1+2): ");
+    print @invokefun(sum, (x: 1, y: 2));
+
+
+    @decl(x, int);
+    @bind(x, 0);
+
+    @decl(incX, func{});
+    @bind(incX, () {
+        @bind(x, @addint(x, 1));
+    });
+
+    @decl(printX, func{});
+    @bind(printX, {
+        print x;
+    });
+
+    @printstring("x before inc: ");
+    @invokefun(printX, ());
+    @invokefun(incX, ());
+    @printstring("x after inc: ");
+    @invokefun(printX, ());
+}

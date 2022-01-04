@@ -27,6 +27,11 @@ main module arrays {
         @arrayget(ar, index)
     }
 
+    $len of ar$
+    (ar: array(bool)) -> int {
+        @arraylen(ar)
+    }
+
     print [1, 2][0];
     print ["hello", "world"][1];
 
@@ -36,4 +41,9 @@ main module arrays {
     print ar[1];
     ar[1] = 7;
     print ar[1];
+
+    print len of [true,];
+    @decl(bools, array(bool));
+    @bind(bools, [true, false, false]);
+    print len of bools;
 }

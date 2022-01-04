@@ -1,6 +1,7 @@
 #include "runtime.h"
 
 struct record_3;
+struct record_4;
 struct record_0;
 struct record_2;
 struct record_1;
@@ -14,6 +15,15 @@ void new_record_3() {
 	record_3* obj = (record_3*) gcalloc(sizeof(record_3), 3);
 	obj->val = (Int*) popRoot();
 	obj->index = (Int*) popRoot();
+	obj->ar = (Array*) popRoot();
+	pushRoot(obj);
+}
+
+struct record_4 : Collectable {
+	Array* ar;
+};
+void new_record_4() {
+	record_4* obj = (record_4*) gcalloc(sizeof(record_4), 1);
 	obj->ar = (Array*) popRoot();
 	pushRoot(obj);
 }
@@ -48,12 +58,14 @@ void new_record_1() {
 }
 
 
-Variable* var_ar_0;
+Variable* var_bools_0;
+Variable* var_ar_1;
 void initializeGlobalVariables() {
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 2; i++) {
 		new_Variable();
 	}
-	var_ar_0 = (Variable*) getRoot(0);
+	var_bools_0 = (Variable*) getRoot(0);
+	var_ar_1 = (Variable*) getRoot(1);
 }
 
 struct closure_fun_4_0 : Collectable {
@@ -62,11 +74,11 @@ void fun_4_0() {
 	record_0* arg = (record_0*) getRoot(0);
 	closure_fun_4_0* closure = (closure_fun_4_0*) getRoot(1);
 	new_Variable();
-	Variable* arg_n_1 = (Variable*) getRoot(0);
-	arg_n_1->val = arg->n;
+	Variable* arg_n_2 = (Variable*) getRoot(0);
+	arg_n_2->val = arg->n;
 	
 	{
-		pushRoot(arg_n_1->val);
+		pushRoot(arg_n_2->val);
 	}
 	printint();
 	{
@@ -87,11 +99,11 @@ void fun_10_1() {
 	record_1* arg = (record_1*) getRoot(0);
 	closure_fun_10_1* closure = (closure_fun_10_1*) getRoot(1);
 	new_Variable();
-	Variable* arg_str_2 = (Variable*) getRoot(0);
-	arg_str_2->val = arg->str;
+	Variable* arg_str_3 = (Variable*) getRoot(0);
+	arg_str_3->val = arg->str;
 	
 	{
-		pushRoot(arg_str_2->val);
+		pushRoot(arg_str_3->val);
 	}
 	printstring();
 	{
@@ -112,15 +124,15 @@ void fun_16_2() {
 	record_2* arg = (record_2*) getRoot(0);
 	closure_fun_16_2* closure = (closure_fun_16_2*) getRoot(1);
 	new_Variable();
-	Variable* arg_ar_3 = (Variable*) getRoot(0);
-	arg_ar_3->val = arg->ar;
+	Variable* arg_ar_4 = (Variable*) getRoot(0);
+	arg_ar_4->val = arg->ar;
 	new_Variable();
-	Variable* arg_index_4 = (Variable*) getRoot(0);
-	arg_index_4->val = arg->index;
+	Variable* arg_index_5 = (Variable*) getRoot(0);
+	arg_index_5->val = arg->index;
 	
 	{
-		pushRoot(arg_ar_3->val);
-		pushRoot(arg_index_4->val);
+		pushRoot(arg_ar_4->val);
+		pushRoot(arg_index_5->val);
 	}
 	arrayget();
 	
@@ -139,19 +151,19 @@ void fun_21_3() {
 	record_3* arg = (record_3*) getRoot(0);
 	closure_fun_21_3* closure = (closure_fun_21_3*) getRoot(1);
 	new_Variable();
-	Variable* arg_ar_5 = (Variable*) getRoot(0);
-	arg_ar_5->val = arg->ar;
+	Variable* arg_ar_6 = (Variable*) getRoot(0);
+	arg_ar_6->val = arg->ar;
 	new_Variable();
-	Variable* arg_index_6 = (Variable*) getRoot(0);
-	arg_index_6->val = arg->index;
+	Variable* arg_index_7 = (Variable*) getRoot(0);
+	arg_index_7->val = arg->index;
 	new_Variable();
-	Variable* arg_val_7 = (Variable*) getRoot(0);
-	arg_val_7->val = arg->val;
+	Variable* arg_val_8 = (Variable*) getRoot(0);
+	arg_val_8->val = arg->val;
 	
 	{
-		pushRoot(arg_ar_5->val);
-		pushRoot(arg_index_6->val);
-		pushRoot(arg_val_7->val);
+		pushRoot(arg_ar_6->val);
+		pushRoot(arg_index_7->val);
+		pushRoot(arg_val_8->val);
 	}
 	arrayset();
 	
@@ -168,15 +180,15 @@ void fun_26_4() {
 	record_2* arg = (record_2*) getRoot(0);
 	closure_fun_26_4* closure = (closure_fun_26_4*) getRoot(1);
 	new_Variable();
-	Variable* arg_ar_8 = (Variable*) getRoot(0);
-	arg_ar_8->val = arg->ar;
+	Variable* arg_ar_9 = (Variable*) getRoot(0);
+	arg_ar_9->val = arg->ar;
 	new_Variable();
-	Variable* arg_index_9 = (Variable*) getRoot(0);
-	arg_index_9->val = arg->index;
+	Variable* arg_index_10 = (Variable*) getRoot(0);
+	arg_index_10->val = arg->index;
 	
 	{
-		pushRoot(arg_ar_8->val);
-		pushRoot(arg_index_9->val);
+		pushRoot(arg_ar_9->val);
+		pushRoot(arg_index_10->val);
 	}
 	arrayget();
 	
@@ -188,6 +200,29 @@ void fun_26_4() {
 void new_fun_26_4() {
 	pushRoot(nullptr);
 	new_Func(fun_26_4);
+}
+struct closure_fun_31_5 : Collectable {
+};
+void fun_31_5() {
+	record_4* arg = (record_4*) getRoot(0);
+	closure_fun_31_5* closure = (closure_fun_31_5*) getRoot(1);
+	new_Variable();
+	Variable* arg_ar_11 = (Variable*) getRoot(0);
+	arg_ar_11->val = arg->ar;
+	
+	{
+		pushRoot(arg_ar_11->val);
+	}
+	arraylen();
+	
+	ret:
+	Collectable* ret_val = popRoot();
+	popRoots(3);
+	pushRoot(ret_val);
+}
+void new_fun_31_5() {
+	pushRoot(nullptr);
+	new_Func(fun_31_5);
 }
 
 int main(int argc, char* argv[]) {
@@ -235,14 +270,14 @@ int main(int argc, char* argv[]) {
 		new_Int(4);
 	}
 	new_Array(3);
-	var_ar_0->val = popRoot();
+	var_ar_1->val = popRoot();
 	// closure for pattern
 	pushRoot(nullptr);
 	{
 		// closure for pattern
 		pushRoot(nullptr);
 		{
-			pushRoot(var_ar_0->val);
+			pushRoot(var_ar_1->val);
 			new_Int(1);
 		}
 		new_record_2();
@@ -253,7 +288,7 @@ int main(int argc, char* argv[]) {
 	// closure for pattern
 	pushRoot(nullptr);
 	{
-		pushRoot(var_ar_0->val);
+		pushRoot(var_ar_1->val);
 		new_Int(1);
 		new_Int(7);
 	}
@@ -265,11 +300,47 @@ int main(int argc, char* argv[]) {
 		// closure for pattern
 		pushRoot(nullptr);
 		{
-			pushRoot(var_ar_0->val);
+			pushRoot(var_ar_1->val);
 			new_Int(1);
 		}
 		new_record_2();
 		fun_16_2();
+	}
+	new_record_0();
+	fun_4_0();
+	// closure for pattern
+	pushRoot(nullptr);
+	{
+		// closure for pattern
+		pushRoot(nullptr);
+		{
+			{
+				new_Bool(true);
+			}
+			new_Array(1);
+		}
+		new_record_4();
+		fun_31_5();
+	}
+	new_record_0();
+	fun_4_0();
+	{
+		new_Bool(true);
+		new_Bool(false);
+		new_Bool(false);
+	}
+	new_Array(3);
+	var_bools_0->val = popRoot();
+	// closure for pattern
+	pushRoot(nullptr);
+	{
+		// closure for pattern
+		pushRoot(nullptr);
+		{
+			pushRoot(var_bools_0->val);
+		}
+		new_record_4();
+		fun_31_5();
 	}
 	new_record_0();
 	fun_4_0();

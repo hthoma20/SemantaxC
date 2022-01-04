@@ -32,6 +32,13 @@ main module arrays {
         @arraylen(ar)
     }
 
+    $range of n shift a$
+    (n: int, a: int) -> array(int) {
+        @initarray(n, (i: int) -> int {
+            @addint(i, a)
+        })
+    }
+
     print [1, 2][0];
     print ["hello", "world"][1];
 
@@ -46,4 +53,13 @@ main module arrays {
     @decl(bools, array(bool));
     @bind(bools, [true, false, false]);
     print len of bools;
+
+    print "";
+    @decl(nums, array(int));
+    @bind(nums, range of 5 shift 3);
+    print nums[0];
+    print nums[1];
+    print nums[2];
+    print nums[3];
+    print nums[4];
 }

@@ -1,0 +1,6 @@
+main module arrays {
+    [1, 2];
+    [];
+    ["hello", "world"];
+    [false,];
+}

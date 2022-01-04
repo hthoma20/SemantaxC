@@ -1,6 +1,39 @@
 main module arrays {
-    [1, 2];
-    [];
-    ["hello", "world"];
-    [false,];
+
+    $print n$
+    (n: int) {
+        @printint(n);
+        @printstring("\n");
+    }
+
+    $print str$
+    (str: string) {
+        @printstring(str);
+        @printstring("\n");
+    }
+
+    $ar[index]$
+    (ar: array(int), index: int) -> int {
+        @arrayget(ar, index)
+    }
+
+    $ar[index] = val$
+    (ar: array(int), index: int, val: int) {
+        @arrayset(ar, index, val);
+    }
+
+    $ar[index]$
+    (ar: array(string), index: int) -> string {
+        @arrayget(ar, index)
+    }
+
+    print [1, 2][0];
+    print ["hello", "world"][1];
+
+    @decl(ar, array(int));
+    @bind(ar, [0, 2, 4]);
+
+    print ar[1];
+    ar[1] = 7;
+    print ar[1];
 }

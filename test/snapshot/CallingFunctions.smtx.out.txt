@@ -2,3 +2,8 @@ Hello, Harry!
 Sum (1+2): 3
 x before inc: 0
 x after inc: 1
+Return (2+3): 5
+counter1: 1
+counter2: 1
+counter2: 2
+counter1: 2

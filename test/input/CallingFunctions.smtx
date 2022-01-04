@@ -40,4 +40,44 @@ main module calling {
     @invokefun(incX, ());
     @printstring("x after inc: ");
     @invokefun(printX, ());
+
+
+    @decl(add3, func{record(a: int) -> int});
+    @bind(add3, (a: int) -> int {
+        @decl(sum, int);
+        @bind(sum, @addint(a, 3));
+        @return(sum);
+    });
+
+    @printstring("Return (2+3): ");
+    print @invokefun(add3, (a: 2));
+
+    @decl(getCounter, func{ -> func{ -> int}});
+    @bind(getCounter, () -> func{ -> int} {
+        @decl(count, int);
+        @bind(count, 0);
+
+        @return(() -> int {
+            @bind(count, @addint(count, 1));
+            @return(count);
+        });
+    });
+
+    @decl(counter1, func{ -> int});
+    @bind(counter1, @invokefun(getCounter, ()));
+
+    @printstring("counter1: ");
+    print @invokefun(counter1, ());
+
+    @decl(counter2, func{ -> int});
+    @bind(counter2, @invokefun(getCounter, ()));
+
+    @printstring("counter2: ");
+    print @invokefun(counter2, ());
+
+    @printstring("counter2: ");
+    print @invokefun(counter2, ());
+
+    @printstring("counter1: ");
+    print @invokefun(counter1, ());
 }

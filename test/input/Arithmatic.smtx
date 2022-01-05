@@ -1,0 +1,114 @@
+main module arithmatic {
+
+    $a + b$
+    (a: int, b: int) -> int {
+        @addint(a, b)
+    }
+
+    $a - b$
+    (a: int, b: int) -> int {
+        a + @negateint(b)
+    }
+
+    $a >= b$
+    (a: int, b: int) -> bool {
+        @gteint(a, b)
+    }
+
+    $a <= b$
+    (a: int, b: int) -> bool {
+        @gteint(b, a)
+    }
+
+    $a > b$
+    (a: int, b: int) -> bool {
+        @gtint(a, b)
+    }
+
+    $a < b$
+    (a: int, b: int) -> bool {
+        @gtint(b, a)
+    }
+
+    $a == b$
+    (a: int, b: int) -> bool {
+        @eqint(a, b)
+    }
+
+    $!b$
+    (b: bool) -> bool {
+        @negatebool(b)
+    }
+
+    $a != b$
+    (a: int, b: int) -> bool {
+        !(a == b)
+    }
+
+    $a and b$
+    (a: bool, b: bool) -> bool {
+        @andbool(a, b)
+    }
+
+    $a or b$
+    (a: bool, b: bool) -> bool {
+        @orbool(a, b)
+    }
+
+    $a == b$
+    (a: bool, b: bool) -> bool {
+        @eqbool(a, b)
+    }
+
+    $a != b$
+    (a: bool, b: bool) -> bool {
+        !(a == b)
+    }
+
+    $case message expect val to be expectedVal$
+    (message: string, val: int, expectedVal: int) {
+        @printstring(message);
+        @printstring(": Expected [");
+        @printint(expectedVal);
+        @printstring("] recieved [");
+        @printint(val);
+        @printstring("]\n");
+    }
+
+    $case message expect val to be expectedVal$
+    (message: string, val: bool, expectedVal: bool) {
+        @printstring(message);
+        @printstring(": Expected [");
+        @printbool(expectedVal);
+        @printstring("] recieved [");
+        @printbool(val);
+        @printstring("]\n");
+    }
+
+    case "add int" expect (1 + 1) to be 2;
+    case "substract int" expect (5 - 3) to be 2;
+    case "greater than" expect (1 > 0) to be true;
+    case "greater than" expect (1 > 1) to be false;
+    case "less than" expect (3 < 5) to be true;
+    case "less than" expect (3 < 1) to be false;
+    case "greater than equal" expect (1 >= 0) to be true;
+    case "greater than equal " expect (1 >= 1) to be true;
+    case "less than equal" expect (3 <= 5) to be true;
+    case "less than equal" expect (3 <= 1) to be false;
+    case "equal int" expect (1 == 1) to be true;
+    case "equal int" expect (0 == 1) to be false;
+    case "not equal int" expect (1 != 1) to be true;
+    case "not equal int" expect (0 != 1) to be true;
+
+    @printstring("\n");
+
+    case "not" expect (!true) to be false;
+    case "not" expect (!false) to be true;
+    case "and" expect (true and false) to be false;
+    case "and" expect (true and true) to be true;
+    case "or" expect (true or false) to be true;
+    case "equal bool" expect (true == false) to be false;
+    case "equal bool" expect (false == false) to be true;
+    case "not equal bool" expect (false != true) to be true;
+    case "not equal bool" expect (false != false) to be false;
+}
